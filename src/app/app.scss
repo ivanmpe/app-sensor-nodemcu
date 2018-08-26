@@ -1,0 +1,109 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+.card-background-page {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+
+}
+
+.background-home{
+    background-color:  rgb(25, 161, 179);
+
+}
+
+*::-webkit-input-placeholder {
+  color: #fff !important;
+}
+*:-moz-placeholder {
+  color: #fff !important;
+}
+*:-ms-input-placeholder { /* IE10+ */
+  color: #fff !important;
+}
+
+.formulario{
+  background-color:  rgb(25, 161, 179);
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    transform: translateY(-50%) translateX(-50%);
+    border-radius: 10px;
+  }
+  .item{
+    background-color:  rgb(25, 161, 179);
+    color: black;
+
+  }
+
+
+.logon{
+    //width: 100%;
+    background-color: white;
+    height: 25px;
+    color: rgb(25, 161, 179);
+    border-radius: 20px;
+    width: 95%;
+    //height: 25px;
+    left: 5%;
+}
+
+.register{
+    width: 95%;
+    height: 25px;
+    left: 5%;
+    color: white;
+    background-color:  rgb(25, 161, 179);
+    border-color: white;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 20px;
+}
+
+.button-cadastro{
+  width: 95%;
+  height: 25px;
+  left: 5%;
+  background-color: white;
+  color: rgb(25, 161, 179);
+  border-radius: 10px;
+
+}

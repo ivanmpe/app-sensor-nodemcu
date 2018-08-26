@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="tab">
+    <ion-title> Perfil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background-perfil" padding>
+
+    <ion-list >
+      <ion-item class="lista-perfil" >
+        <button   class="lista-perfil" (click)="mudarSenha()"  > <strong> Mudar senha  </strong></button>
+      </ion-item>
+      <ion-item class="lista-perfil">
+        <button class="lista-perfil" (click)="about()"> <strong> Sobre  </strong></button>
+      </ion-item>
+    
+      <ion-item  class="lista-perfil" >
+        <button  class="lista-perfil" (click)="logout()">  <strong> Logout  </strong></button>
+      </ion-item>
+    </ion-list>
+</ion-content>

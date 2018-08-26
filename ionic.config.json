@@ -1,0 +1,7 @@
+{
+  "name": "app-sensor-nodemcu",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
