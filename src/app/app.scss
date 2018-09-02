@@ -68,6 +68,16 @@
     transform: translateY(-50%) translateX(-50%);
     border-radius: 10px;
   }
+
+  .pinos{
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      transform: translateY(-50%) translateX(-50%);
+      border-radius: 10px;
+    }
+
   .item{
     background-color:  rgb(25, 161, 179);
     color: black;

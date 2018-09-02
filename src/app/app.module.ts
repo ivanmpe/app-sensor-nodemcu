@@ -13,8 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import {InfoProdutoPage} from '../pages/info-produto/info-produto';
 //import { ProdutoService } from '../providers/produto/produto.service';
 import { CadastroPage } from '../pages/cadastro/cadastro';
-import { TemperaturaPage } from '../pages/temperatura/temperatura';
-import { UmidadePage } from '../pages/umidade/umidade';
+
 import { PinosPage } from '../pages/pinos/pinos';
 import { LoginPage } from '../pages/login/login';
 import{ MudarSenhaPage} from '../pages/mudar-senha/mudar-senha';
@@ -22,6 +21,9 @@ import{ MudarSenhaPage} from '../pages/mudar-senha/mudar-senha';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {AngularFireModule} from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { HistoricoTemperaturaPage } from '../pages/historico-temperatura/historico-temperatura';
+import { HistoricoUmidadePage } from '../pages/historico-umidade/historico-umidade';
+import * as highcharts from 'Highcharts';
 
 
 var config = {
@@ -41,11 +43,11 @@ var config = {
     HomePage,
     TabsPage, 
     CadastroPage, 
-    TemperaturaPage, 
-    UmidadePage,
     PinosPage,
     LoginPage, 
-    MudarSenhaPage
+    MudarSenhaPage,
+    HistoricoTemperaturaPage,
+    HistoricoUmidadePage
   ],
   imports: [
     BrowserModule,
@@ -60,10 +62,10 @@ var config = {
     HomePage,
     TabsPage, 
     CadastroPage, 
-    TemperaturaPage, 
-    UmidadePage,
     PinosPage,
-    LoginPage
+    LoginPage, 
+    HistoricoTemperaturaPage, 
+    HistoricoUmidadePage
   ],
   providers: [
     StatusBar,

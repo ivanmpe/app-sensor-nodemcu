@@ -13,74 +13,47 @@
 </ion-header>
 
 <ion-content padding>
-
+<div class="pinos"> 
   <p>
-    <button ion-button color="light" icon-start>
-      <ion-icon name='arrow-back'></ion-icon>
-      Back
+    <button ion-button [color]="statusPinoD1 ? 'secondary' : 'danger' " color="secondary" icon-start round>
+       Pino D1 
     </button>
-
-    <button ion-button color="light" icon-only>
-      <ion-icon name='arrow-down'></ion-icon>
-    </button>
-
-    <button ion-button color="light" icon-only>
-      <ion-icon name='arrow-up'></ion-icon>
-    </button>
-
-    <button ion-button color="light" icon-end>
-      Next
-      <ion-icon name='arrow-forward'></ion-icon>
+   <button ion-button [color]="statusPinoD2 ? 'secondary' : 'danger' " color="secondary" icon-start round>
+       Pino D2
     </button>
   </p>
-
   <p>
-    <button ion-button icon-start>
-      <ion-icon name='home'></ion-icon>
-      Home
+    <button ion-button [color]="statusPinoD3 ? 'secondary' : 'danger' " color="secondary" icon-start round>
+       Pino D3 
     </button>
-    <button ion-button outline icon-start>
-      <ion-icon name='briefcase' is-active="false"></ion-icon>
-      Work
-    </button>
-    <button ion-button clear icon-start>
-      <ion-icon name='beer' is-active="false"></ion-icon>
-      Pub
+    <button ion-button [color]="statusPinoD4 ? 'secondary' : 'danger' " color="secondary" icon-start round >
+       Pino D4
     </button>
   </p>
-
   <p>
-    <button ion-button color="secondary" icon-start>
-      <ion-icon name='people'></ion-icon>
-      Friends
+
+    <button ion-button [color]="statusPinoD5 ? 'secondary' : 'danger' " color="secondary" icon-start round>
+       Pino D5 
     </button>
-    <button ion-button color="secondary" outline icon-start>
-      <ion-icon name='paw' is-active="false"></ion-icon>
-      Best Friend
+    <button ion-button [color]="statusPinoD6 ? 'secondary' : 'danger' " color="secondary" icon-start round>
+       Pino D6
     </button>
   </p>
-
   <p>
-    <button ion-button color="danger" icon-start>
-      <ion-icon name='close'></ion-icon>
-      Remove
+    <button ion-button [color]="statusPinoD7 ? 'secondary' : 'danger' " color="secondary" icon-start round>
+       Pino  D7 
     </button>
-    <button ion-button color="danger" outline icon-only>
-      <ion-icon name='remove-circle' is-active="false"></ion-icon>
-    </button>
-    <button ion-button color="danger" clear icon-only>
-      <ion-icon name='trash' is-active="false"></ion-icon>
+    <button ion-button [color]="statusPinoD8 ? 'secondary' : 'danger' " color="secondary" icon-start round>
+       Pino  D8
     </button>
   </p>
-
   <p>
-    <button ion-button color="dark" round icon-start>
-      <ion-icon name='construct' is-active="false"></ion-icon>
-      Tools
+    <button ion-button [color]="statusPinoD9 ? 'secondary' : 'danger' " color="secondary" icon-start round>
+       Pino  D9 
     </button>
-    <button ion-button color="dark" clear icon-only>
-      <ion-icon name='hammer' is-active="false"></ion-icon>
+    <button ion-button [color]="statusPinoD10 ? 'secondary' : 'danger' " color="secondary" icon-start  round>
+       Pino D10
     </button>
   </p>
-
+</div>
 </ion-content>
