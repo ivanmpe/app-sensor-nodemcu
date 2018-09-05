@@ -23,7 +23,9 @@ import { HistoricoTemperaturaPage } from '../pages/historico-temperatura/histori
 import { HistoricoUmidadePage } from '../pages/historico-umidade/historico-umidade';
 import * as highcharts from 'Highcharts';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import {NgxMqttClientModule} from 'ngx-mqtt-client';
+//import {NgxMqttClientModule} from 'ngx-mqtt-client';
+import { TemperaturasProvider } from '../providers/temperaturas/temperaturas';
+import { UmidadesProvider } from '../providers/umidades/umidades';
 
 
 
@@ -35,6 +37,16 @@ const config = {
   storageBucket: "fir-esp8266-25146.appspot.com",
   messagingSenderId: "454487278619"
 };
+
+/*
+var config = {
+  apiKey: "AIzaSyBnUP7i0PHO6AhxTZ8-fPuA8M8sFZn2vt4",
+  authDomain: "controle-de-estoque-20767.firebaseapp.com",
+  databaseURL: "https://controle-de-estoque-20767.firebaseio.com",
+  projectId: "controle-de-estoque-20767",
+  storageBucket: "",
+  messagingSenderId: "181241066356"
+}; */
 
 @NgModule({
   declarations: [
@@ -64,12 +76,12 @@ const config = {
   "showBackground": false
 }),
   IonicModule.forRoot(MyApp),
-   NgxMqttClientModule.withOptions({
-            host: 'test.mosquitto.org',
-            protocol: 'ws',
-            port: 8080,
-            path: '/mqtt/ivanmpe'
-        }), 
+//   NgxMqttClientModule.withOptions({
+  //          host: 'test.mosquitto.org',
+    //        protocol: 'ws',
+      //      port: 8080,
+          //  path: '/mqtt/ivanifce2018'
+        //}), 
   AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
@@ -91,7 +103,9 @@ const config = {
   SplashScreen,
   AngularFireDatabase,
   AngularFireAuth,
-  {provide: ErrorHandler, useClass: IonicErrorHandler}
+  {provide: ErrorHandler, useClass: IonicErrorHandler},
+    TemperaturasProvider,
+    UmidadesProvider
   ]
 })
 export class AppModule {}

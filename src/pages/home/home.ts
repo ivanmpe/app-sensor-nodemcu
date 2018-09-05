@@ -35,7 +35,9 @@ export class HomePage {
   temperaturas: Observable<any>;
 
 
-  constructor(public navCtrl: NavController,private mqttService: MqttService) {
+  //constructor(public navCtrl: NavController, private mqttService: MqttService) {
+    constructor(public navCtrl: NavController) {
+
 //  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth,  database : AngularFireDatabase) {
    //  this.temperaturas = database.list("temperaturas/").valueChanges();
    }
@@ -51,17 +53,18 @@ export class HomePage {
   historicoUmidade(){
     this.navCtrl.push(HistoricoUmidadePage);
   }
-
+/*
  connect(config: IClientOptions): void {
        this.mqttService.connect(config);
     }
- 
+ */
     /**
      * Subscribes to fooBar topic.
      * The first emitted value will be a {@see SubscriptionGrant} to confirm your subscription was successful.
      * After that the subscription will only emit new value if someone publishes into the fooBar topic.
      * */
-    subscribe(): void {
+  /*
+     subscribe(): void {
         this.mqttService.subscribeTo<sensores>('sensores')
             .subscribe({
                 next: (msg: SubscriptionGrant | sensores) => {
@@ -79,11 +82,13 @@ export class HomePage {
                 }
             });
     }
-  
+  */
     /**
      * Sends message to fooBar topic.
      */
-   sendMsg(): void {
+  
+  /*
+     sendMsg(): void {
         this.mqttService.publishTo<sensores>('sensores', {temperatura: '80', umidade: '60'}).subscribe({
             next: () => {
                 this.status.push('Mensagem enviada para sensores');
@@ -93,11 +98,11 @@ export class HomePage {
             }
         });
     }
- 
+*/ 
     /**
      * Unsubscribe from fooBar topic.
      */
-    unsubscribe(): void {
+ /*   unsubscribe(): void {
         this.mqttService.unsubscribeFrom('sensores').subscribe({
             next: () => {
                 this.status.push('Unsubscribe from fooBar topic');
@@ -107,7 +112,7 @@ export class HomePage {
             }
         });
     }
- 
+ */
     /**
      * The purpose of this is, when the user leave the app we should cleanup our subscriptions
      * and close the connection with the broker

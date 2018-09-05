@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as HighCharts from 'highcharts';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
@@ -22,14 +21,27 @@ import { Observable } from 'rxjs/Observable';
 })
 export class HistoricoTemperaturaPage {
 
-  temperaturas: Observable<any>;
+  dbTemperaturas: Observable<any>;
+  temperaturas:  Array<number> = [0] ;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public afAuth: AngularFireAuth,  database : AngularFireDatabase) {
-     this.temperaturas = database.list("temperaturas/").valueChanges();
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,  database : AngularFireDatabase) {
+
+
+
+   
+    this.dbTemperaturas= database.list("temperatura").valueChanges();
+    var refItem = database.list("temperatura");
+    refItem.snapshotChanges([])
+        .subscribe( filhos => {
+          filhos.forEach( filho => {
+            this.temperaturas.push(filho.payload.val());
+           });
+        });
+                   
   }
 
   ionViewDidLoad() {
-
 
     var myChart = HighCharts.chart('container', {
 
@@ -55,8 +67,8 @@ export class HistoricoTemperaturaPage {
       series: [{
         name: 'Temperatura',
         color: "#19A1B3",
-        data: [ 34, 10, 38, 28, 31, 31, 33, 35, 34, 30, 38, 28, 31, 31, 33, 35]
-      }],
+        data: this.temperaturas  
+       }],
     
       responsive: {
         rules: [{
