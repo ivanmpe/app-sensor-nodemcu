@@ -5,29 +5,53 @@
 </ion-header>
 
 
-<ion-content padding class="card-background-page">
+<ion-content padding>
 
+<div class="centrohome">
 
-  <ion-card-content>
-    <ion-card color="tabs">
-      <img src="https://abrilviagemeturismo.files.wordpress.com/2016/12/sp12.jpeg?quality=70&strip=info&w=922" />
-      <div class="card-title"> 50 °</div>
-    </ion-card>
-  </ion-card-content>
-  <button ion-button full icon-start (click)="historicoTemperatura()">
-    <ion-icon name="thermometer"></ion-icon>
+<circle-progress
+  [percent]= temperatura
+  [subtitle] = "'Temperatura'"
+  [subtitleColor]=  "'#353535'"
+  ></circle-progress>
+<circle-progress
+  [percent]= umidade
+  [subtitle] = "'Umidade'"
+  [titleFontSize] = 26
+  [showUnits] = true
+  [subtitleFontSize] = 14
+  [subtitleColor]=  "'#353535'"
+  ></circle-progress>
+   <button ion-button class="button-historico" icon-start (click)="historicoTemperatura()">
+    <ion-icon name="ios-thermometer"></ion-icon>
+    Histórico
+  </button>
+  <br>
+  <button ion-button class="button-historico" icon-start (click)="historicoUmidade()">
+    <ion-icon name="ios-water"></ion-icon>
     Histórico
   </button>
 
 
+<button ion-button class="button-historico" (click)="subscribe()">SUBSCRIBE TO FOOBAR TOPIC</button>
+<button ion-button class="button-historico"  (click)="sendMsg()">SEND FOOBAR MESSAGE</button>
+<button ion-button class="button-historico"  (click)="unsubscribe()">UNSUBSCRIBE FROM FOOBAR TOPIC</button>
 
-  <ion-card>
-    <img src="http://www.guiaviajarmelhor.com.br/wp-content/uploads/2015/06/Dicas-Rio-de-Janeiro-1.jpg" />
-    <div class="card-title"> 50 %</div>
-  </ion-card>
-  <button ion-button full icon-start (click)="historicoUmidade()">
-    <ion-icon name="water"></ion-icon>
-    Histórico
-  </button>
+
+<ion-list >
+  <ion-item-sliding *ngFor="let p of messages" >
+     <ion-item>
+    <strong> Umidade: {{p.umidade}}, Temperatura: {{p.temperatura}}</strong>
+    </ion-item>
+  </ion-item-sliding>
+</ion-list>
+
+
+
+
+
+
+
+</div>
 
 </ion-content>

@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as HighCharts from 'highcharts';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase} from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+
+
+
 
 /**
  * Generated class for the HistoricoTemperaturaPage page.
@@ -16,7 +22,10 @@ import * as HighCharts from 'highcharts';
 })
 export class HistoricoTemperaturaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  temperaturas: Observable<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public afAuth: AngularFireAuth,  database : AngularFireDatabase) {
+     this.temperaturas = database.list("temperaturas/").valueChanges();
   }
 
   ionViewDidLoad() {

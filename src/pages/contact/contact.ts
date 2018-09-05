@@ -5,6 +5,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { HomePage } from '../home/home';
 import { App} from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import {AboutPage} from '../about/about';
+
+
 
 
 @Component({
@@ -19,6 +22,10 @@ export class ContactPage {
 
   mudarSenha(){
     this.navCtrl.push(MudarSenhaPage);
+  }
+
+  about(){
+    this.navCtrl.push(AboutPage);
   }
 
   logout(){

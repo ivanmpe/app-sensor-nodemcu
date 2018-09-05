@@ -10,10 +10,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-//import {InfoProdutoPage} from '../pages/info-produto/info-produto';
-//import { ProdutoService } from '../providers/produto/produto.service';
-import { CadastroPage } from '../pages/cadastro/cadastro';
 
+import { CadastroPage } from '../pages/cadastro/cadastro';
 import { PinosPage } from '../pages/pinos/pinos';
 import { LoginPage } from '../pages/login/login';
 import{ MudarSenhaPage} from '../pages/mudar-senha/mudar-senha';
@@ -24,55 +22,76 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { HistoricoTemperaturaPage } from '../pages/historico-temperatura/historico-temperatura';
 import { HistoricoUmidadePage } from '../pages/historico-umidade/historico-umidade';
 import * as highcharts from 'Highcharts';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import {NgxMqttClientModule} from 'ngx-mqtt-client';
 
 
-var config = {
-  apiKey: "AIzaSyCluIVH6ZZPhMHlXWSzPeS33P3OCo2hiKg",
+
+const config = {
+   apiKey: "AIzaSyCluIVH6ZZPhMHlXWSzPeS33P3OCo2hiKg",
   authDomain: "fir-esp8266-25146.firebaseapp.com",
   databaseURL: "https://fir-esp8266-25146.firebaseio.com",
   projectId: "fir-esp8266-25146",
   storageBucket: "fir-esp8266-25146.appspot.com",
   messagingSenderId: "454487278619"
- };
+};
 
 @NgModule({
   declarations: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage, 
-    CadastroPage, 
-    PinosPage,
-    LoginPage, 
-    MudarSenhaPage,
-    HistoricoTemperaturaPage,
-    HistoricoUmidadePage
+  MyApp,
+  AboutPage,
+  ContactPage,
+  HomePage,
+  TabsPage, 
+  CadastroPage, 
+  PinosPage,
+  LoginPage, 
+  MudarSenhaPage,
+  HistoricoTemperaturaPage,
+  HistoricoUmidadePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(config)
+   NgCircleProgressModule.forRoot({
+  "radius": 60,
+  "outerStrokeWidth": 10,
+  "innerStrokeColor": "#19a1b3",
+  "outerStrokeColor": "#15a964",
+  "innerStrokeWidth": 5,
+  "titleFontSize": "26",
+  "subtitleFontSize": "14",
+  "showUnits": false,
+  "showBackground": false
+}),
+  IonicModule.forRoot(MyApp),
+   NgxMqttClientModule.withOptions({
+            host: 'test.mosquitto.org',
+            protocol: 'ws',
+            port: 8080,
+            path: '/mqtt/ivanmpe'
+        }), 
+  AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage, 
-    CadastroPage, 
-    PinosPage,
-    LoginPage, 
-    HistoricoTemperaturaPage, 
-    HistoricoUmidadePage
+  MyApp,
+  AboutPage,
+  ContactPage,
+  HomePage,
+  TabsPage, 
+  CadastroPage, 
+  PinosPage,
+  MudarSenhaPage, 
+  LoginPage, 
+  HistoricoTemperaturaPage, 
+  HistoricoUmidadePage
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
-    AngularFireDatabase,
-    AngularFireAuth,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+  StatusBar,
+  SplashScreen,
+  AngularFireDatabase,
+  AngularFireAuth,
+  {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

@@ -16,37 +16,18 @@
 // automatically applied to the <body> element in the app.
 
 
-.card-background-page {
-
-  ion-card {
-    position: relative;
-    text-align: center;
-
-  }
-
-  .card-title {
-    position: absolute;
-    top: 36%;
-    font-size: 2.0em;
-    width: 100%;
-    font-weight: bold;
-    color: #fff;
-
-  }
-
-  .card-subtitle {
-    font-size: 1.0em;
-    position: absolute;
-    top: 52%;
-    width: 100%;
-    color: #fff;
-  }
-
-}
 
 .background-home{
     background-color:  rgb(25, 161, 179);
+}
 
+.centrohome{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translateY(-50%) translateX(-50%);
+    border-radius: 10px;
 }
 
 *::-webkit-input-placeholder {
@@ -70,18 +51,17 @@
   }
 
   .pinos{
-    position: absolute;
+       margin: 0;
+      position: absolute;
       top: 50%;
       left: 50%;
-      width: 90%;
-      transform: translateY(-50%) translateX(-50%);
-      border-radius: 10px;
+     margin-right: -50%;
+     transform: translate(-50%, -50%) 
     }
 
   .item{
     background-color:  rgb(25, 161, 179);
     color: black;
-
   }
 
 
