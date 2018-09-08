@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {  NgForm } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastController } from 'ionic-angular';
+import { ContactPage} from '../contact/contact';
 
 /**
  * Generated class for the MudarSenhaPage page.
@@ -47,6 +48,7 @@ export class MudarSenhaPage {
         if(novaSenha.length > 5) {
             this.afAuth.auth.currentUser.updatePassword(novaSenha).then( ok => {
               this.presentToast('Senha atualizada com sucesso! ');
+              this.navCtrl.push(ContactPage);
             });
 
         }else{
