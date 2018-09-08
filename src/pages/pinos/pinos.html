@@ -13,47 +13,54 @@
 </ion-header>
 
 <ion-content padding>
-<div class="pinos"> 
-  <p>
-    <button ion-button [color]="statusPinoD1 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d1()">
-       Pino D1 
-    </button>
-   <button ion-button [color]="statusPinoD2 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d2()">
-       Pino D2
-    </button>
-  </p>
-  <p>
-    <button ion-button [color]="statusPinoD3 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d3()">
-       Pino D3 
-    </button>
-    <button ion-button [color]="statusPinoD4 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d4()">
-       Pino D4
-    </button>
-  </p>
-  <p>
 
-    <button ion-button [color]="statusPinoD5 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d5()">
-       Pino D5 
-    </button>
-    <button ion-button [color]="statusPinoD6 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d6()">
-       Pino D6
-    </button>
-  </p>
-  <p>
-    <button ion-button [color]="statusPinoD7 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d7()">
-       Pino  D7 
-    </button>
-    <button ion-button [color]="statusPinoD8 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d8()">
-       Pino  D8
-    </button>
-  </p>
-  <p>
-    <button ion-button [color]="statusPinoD9 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d9()">
-       Pino  D9 
-    </button>
-    <button ion-button [color]="statusPinoD10 ? 'secondary' : 'danger' " color="secondary" icon-start  round (click)="d10()">
-       Pino D10
-    </button>
-  </p>
-</div>
+  <h6 align="center"> Coloração vermelha indica que o pino está <strong>Desligado</strong>, coloração verde indica que
+    o mesmo está <strong>Ligado</strong></h6>
+
+
+  <div class="pinos">
+    <p>
+      <button ion-button [color]="statusPinoD1 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d1()">
+        Pino D1
+      </button>
+      <button ion-button [color]="statusPinoD2 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d2()">
+        Pino D2
+      </button>
+    </p>
+    <p>
+      <button ion-button [color]="statusPinoD3 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d3()">
+        Pino D3
+      </button>
+      <button ion-button [color]="statusPinoD4 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d4()">
+        Pino D4
+      </button>
+    </p>
+    <p>
+
+      <button ion-button [color]="statusPinoD5 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d5()">
+        Pino D5
+      </button>
+      <button ion-button [color]="statusPinoD6 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d6()">
+        Pino D6
+      </button>
+    </p>
+    <p>
+      <button ion-button [color]="statusPinoD7 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d7()">
+        Pino D7
+      </button>
+      <button ion-button [color]="statusPinoD8 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d8()">
+        Pino D8
+      </button>
+    </p>
+    <p>
+      <button ion-button [color]="statusPinoD9 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d9()">
+        Pino D9
+      </button>
+      <button ion-button [color]="statusPinoD10 ? 'secondary' : 'danger' " color="secondary" icon-start round (click)="d10()">
+        Pino D10
+      </button>
+    </p>
+  </div>
+
+
 </ion-content>

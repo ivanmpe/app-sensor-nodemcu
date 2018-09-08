@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as HighCharts from 'highcharts';
+import firebase from 'firebase';
 
 /**
  * Generated class for the HistoricoUmidadePage page.
@@ -16,11 +17,43 @@ import * as HighCharts from 'highcharts';
 })
 export class HistoricoUmidadePage {
 
+
+  public db: firebase.database.Reference;
+  public umidades = [];
+  public valorMedio;
+  public totalAmostras;
+
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
   ionViewDidLoad() {
 
+    this.db = firebase.database().ref('umidade/');
+    this.db.on('value', umidadesList => {
+      let temp = [];
+      umidadesList.forEach(umidade => {
+        temp.push(umidade.val());
+        return false;
+      });
+      this.umidades = temp;
+      this.graficoUmidade(this.umidades);
+      var soma=0;
+      for (var i=0; i< this.umidades.length; i++){
+          soma = this.umidades[i] + soma;
+      }  
+      this.totalAmostras = this.umidades.length;
+      this.valorMedio = (soma/this.umidades.length).toFixed(0);
+    });
+
+
+    console.log('ionViewDidLoad HistoricoUmidadePage');
+  }
+
+  graficoUmidade( umidades: any)
+  {
     var myChart = HighCharts.chart('container', {
 
       title: {
@@ -36,18 +69,17 @@ export class HistoricoUmidadePage {
         align: 'right',
         verticalAlign: 'middle'
       },
-    
+
       plotOptions: {
-       
+
       },
-    
+
       series: [{
         name: 'Umidade',
         color: "#19A1B3",
-        data: [ 60, 50, 38, 62, 51, 45, 48, 45, 62, 51, 45, 48, 45] 
-        
+        data: umidades
       }],
-    
+
       responsive: {
         rules: [{
           condition: {
@@ -62,10 +94,12 @@ export class HistoricoUmidadePage {
           }
         }]
       }
-    
+
     });
 
-    console.log('ionViewDidLoad HistoricoUmidadePage');
+
   }
+
+
 
 }

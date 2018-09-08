@@ -14,4 +14,6 @@ export class TemperaturasProvider {
     console.log('Hello TemperaturasProvider Provider');
   }
 
+
+
 }

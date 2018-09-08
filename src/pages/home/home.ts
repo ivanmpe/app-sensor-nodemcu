@@ -6,16 +6,9 @@ import { HistoricoUmidadePage} from '../historico-umidade/historico-umidade';
 //import {ConnectionStatus, MqttService, SubscriptionGrant} from 'ngx-mqtt-client';
 //import {IClientOptions} from 'mqtt';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase} from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-
-
-export interface sensores {
-  temperatura: string;
-  umidade: string;
-}
-
-
+import firebase from 'firebase';
 
 
 @Component({
@@ -24,25 +17,47 @@ export interface sensores {
 })
 export class HomePage {
 
-  messages: Array<sensores> = [];
+//  messages: Array<sensores> = [];
 
-  status: Array<string> = [];
-
-
-  temperatura: string = "31" ;
-  umidade: string = "60";
-  refBD: AngularFireDatabase;
-  temperaturas: Observable<any>;
+  //status: Array<string> = [];
 
 
+  temperatura: any  ;
+  umidade: string ;
+  public db:firebase.database.Reference;
+ 
+ 
   //constructor(public navCtrl: NavController, private mqttService: MqttService) {
-    constructor(public navCtrl: NavController) {
-
-//  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth,  database : AngularFireDatabase) {
-   //  this.temperaturas = database.list("temperaturas/").valueChanges();
+   constructor(public navCtrl: NavController, database: AngularFireDatabase) {
+   
+   
+    
    }
 
   ionViewDidLoad() {
+        
+    this.db = firebase.database().ref('umidade/');
+    this.db.on('value', umidadesList => {
+      let temp = [];
+      umidadesList.forEach(umidade => {
+        temp.push(umidade.val());
+        return false;
+      });
+      this.umidade = temp[temp.length-1];
+    });
+
+
+    this.db = firebase.database().ref('temperatura/');
+    this.db.on('value', temperaturaList => {
+      let temp = [];
+      temperaturaList.forEach(temperatura => {
+        temp.push(temperatura.val());
+        return false;
+      });
+      this.temperatura = temp[temp.length-1];
+    });
+
+
       console.log('ionViewDidLoad HomePage');
   }
 
