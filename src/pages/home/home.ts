@@ -9,8 +9,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import firebase from 'firebase';
-import {Paho} from 'ng2-mqtt/mqttws31';
-
+import { Paho } from 'ng2-mqtt/mqttws31';
+import { ToastController } from 'ionic-angular';
 
 @Component({
     selector: 'page-home',
@@ -22,18 +22,30 @@ export class HomePage {
     umidade: string;
     public db: firebase.database.Reference;
     client;
-    path = '/mqtt/ivanifce2018'
+    host = 'm13.cloudmqtt.com';
+    path = '/mqtt/ivanifce2018';
+    port = 33728;
+    client2;
 
-    constructor(public navCtrl: NavController, database: AngularFireDatabase ) {
-      
+
+    options = {
+        useSSL: true,
+        userName: "xmvxeajy",
+        password: "_rdhkvlq9-aB",
+        onSuccess: this.onConnected.bind(this)
+    }
+
+    constructor(public navCtrl: NavController, database: AngularFireDatabase, public toastCtrl: ToastController) {
+
     }
 
 
     ionViewDidLoad() {
-        this.client = new Paho.MQTT.Client('test.mosquitto.org', 8080, this.path);
-        this.onMessage();
-        this.client.connect({onSuccess: this.onConnected.bind(this)});
-
+        
+        this.client = new Paho.MQTT.Client(this.host, this.port, this.path);
+        this.client.connect(this.options);
+        this.mqttTemperatura();
+        //this.mqttUmidade();
 
         this.db = firebase.database().ref('umidade/');
         this.db.on('value', umidadesList => {
@@ -60,34 +72,57 @@ export class HomePage {
         console.log('ionViewDidLoad HomePage');
     }
 
-  
+
 
     onConnected() {
-        console.log("Connected");
-        this.client.subscribe("ivanifce2018/sensor/temperatura");
-        this.sendMessage('30');
-      }
-    
-      sendMessage(message: string) {
+       this.client.subscribe("sensor/temperatura");
+       this.presentToast('mqtt conectado');
+    }
+
+    sendMessage(message: string) {
         let packet = new Paho.MQTT.Message(message);
-        packet.destinationName = "ivanifce2018/sensor/temperatura";
+        packet.destinationName = "sensor/temperatura";
         this.client.send(packet);
-      }
-        
-      onMessage() {
-        this.client.onMessageArrived = (message: Paho.MQTT.Message) => {
-          console.log('Temperatura : ' + message.payloadString);
+    }
+
+
+    mqttTemperatura() {
+            this.client.onMessageArrived = (message: Paho.MQTT.Message) => {
+            console.log('Temperatura : ' + message.payloadString);
             this.temperatura = message.payloadString
         };
-      }
-    
-      onConnectionLost() {
-        this.client.onConnectionLost = (responseObject: Object) => {
-          console.log('Connection lost : ' + JSON.stringify(responseObject));
+    }
+
+    /*mqttUmidade() {
+        this.client.subscribe("sensor/umidade");
+        this.client.onMessageArrived = (message: Paho.MQTT.Message) => {
+            console.log('Umidade : ' + message.payloadString);
+            this.umidade = message.payloadString
         };
+    }*/
+    /* onMessage() {
+       this.client.onMessageArrived = (message: Paho.MQTT.Message) => {
+         console.log('Temperatura : ' + message.payloadString);
+           this.temperatura = message.payloadString
+       };
+     }*/
+   
+    
+    onConnectionLost() {
+        this.client.onConnectionLost = (responseObject: Object) => {
+            this.presentToast('Connection lost : ' + JSON.stringify(responseObject));
+
+            console.log('Connection lost : ' + JSON.stringify(responseObject));
+        };
+    }
+
+    presentToast(msg: string) {
+        let toast = this.toastCtrl.create({
+          message: msg,
+          duration: 1000
+        });
+        toast.present();
       }
-
-
 
     historicoTemperatura() {
         this.navCtrl.push(HistoricoTemperaturaPage);
