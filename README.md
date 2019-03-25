@@ -1,6 +1,6 @@
 <h2>Telas</h2>
 
-<img src="https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/1.jpeg" width="200" height="400" />
+<img src="https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/1.jpeg" width="250" height="400" />
 
 </br>
 <h2>Desenvolvimento</h2>
