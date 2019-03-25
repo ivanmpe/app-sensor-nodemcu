@@ -1,6 +1,6 @@
 <h2>Telas</h2>
 
-![Tela 1](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/page.jpeg)
+![Tela 1](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/page.jpg)
 </br>
 <h2>Desenvolvimento</h2>
 <ul>
