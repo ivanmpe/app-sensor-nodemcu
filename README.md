@@ -16,11 +16,15 @@
 <p>O hardware do sistema é composto por um microcontrolador NODEMCU ESP8266 que controla um sensor DHT11 para coletar dados de temperatura e umidade, aliado a isso é possível o acionamento de pinos que possuem LEDs, que emulam a utilização de cargas.  </p>
 
 <h2>Esquema</h2>
+
 ![Tela esquema](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/esquema_frietzing.jpeg)
 
 <h2>Componentes</h2>
+
 <h4>NodeMCU</h4>
+
 ![Tela nodemcu](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/nodemcu.jpg)
+
 <p>O ESP8266 é um <i>microchip WiFi</i> de baixo custo com pilha TCP/IP completa e capacidade microcontroladora produzida pela empresa chinesa <i>Espressif Systems</i>. O chip ESP8266 é combinado com um conector micro-USB com interface USB-Serial para acoplamento a computadores, um regulador de tensão para 3.3 V e um conversor analógico-digital para compor a placa NodeMCU.</p>
 
 <h4> DHT 11 Sensor</h4>
