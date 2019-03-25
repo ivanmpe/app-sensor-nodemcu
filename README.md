@@ -13,8 +13,8 @@
 </ul>
 
 <h2>Objetivos</h2>
-<p>O presente projeto tem por finalidade o desenvolvimento de um Ambiente de Internet das Coisas(IoT) para monitoramento de Umidade e Temperatura de baixo custo, com intuito de servir para proposito geral, podendo ser aplicada em diversos ambientes em que se tenha a necessidade de medir estas grandezas.</p>
-<p>O hardware do sistema é composto por um microcontrolador NODEMCU ESP8266 que controla um sensor DHT11 para coletar dados de temperatura e umidade, aliado a isso é possível o acionamento de pinos que possuem LEDs, que emulam a utilização de cargas.  </p>
+<p align="justify" >O presente projeto tem por finalidade o desenvolvimento de um Ambiente de Internet das Coisas(IoT) para monitoramento de Umidade e Temperatura de baixo custo, com intuito de servir para proposito geral, podendo ser aplicada em diversos ambientes em que se tenha a necessidade de medir estas grandezas.</p>
+<p align="justify">O hardware do sistema é composto por um microcontrolador NODEMCU ESP8266 que controla um sensor DHT11 para coletar dados de temperatura e umidade, aliado a isso é possível o acionamento de pinos que possuem LEDs, que emulam a utilização de cargas.  </p>
 
 <h2>Esquema</h2>
 
