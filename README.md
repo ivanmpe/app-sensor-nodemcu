@@ -21,14 +21,15 @@
 ![Tela esquema](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/esquema_frietzing.jpeg)
 
 <h2>Componentes</h2>
+<ul>
+<li><h4>NodeMCU</h4></li>
 
-<h4>NodeMCU</h4>
 
 <p align="center"><img src="https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/nodemcu.jpg" width="250" height="300" /></p>
 
 <p>O ESP8266 é um <i>microchip WiFi</i> de baixo custo com pilha TCP/IP completa e capacidade microcontroladora produzida pela empresa chinesa <i>Espressif Systems</i>. O chip ESP8266 é combinado com um conector micro-USB com interface USB-Serial para acoplamento a computadores, um regulador de tensão para 3.3 V e um conversor analógico-digital para compor a placa NodeMCU.</p>
 
-<h4> DHT 11 Sensor</h4>
+<li><h4> DHT 11 Sensor</h4></li>
 
 <p align="center"><img src ="https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/dht11.png" width="250" height="300" /></p>
 
