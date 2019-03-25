@@ -1,11 +1,6 @@
 <h2>Telas</h2>
 
-![Tela 1](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/1.jpeg | width=500)
-![Tela 2](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/2.jpeg)
-![Tela 3](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/3.jpeg)
-![Tela 4](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/4.jpeg)
-![Tela 5](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/5.jpeg)
-![Tela 6](https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/6.jpeg)
+<img src="https://raw.githubusercontent.com/ivanmpe/app-sensor-nodemcu/master/Telas/1.jpeg" width="200" height="400" />
 
 </br>
 <h2>Desenvolvimento</h2>
