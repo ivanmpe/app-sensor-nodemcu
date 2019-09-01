@@ -25,31 +25,11 @@ export class HistoricoTemperaturaPage {
   public db: firebase.database.Reference;
   public temperaturas;
   public valorMedio;
-  public totalAmostras;
+  public totalAmostras: number = 0;
+  public valorMediana: number = 0; 
+  public valorModa; 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, database: AngularFireDatabase) {
-
-
-
-    /*    this.db = firebase.database().ref('temperatura/');
-          this.db.on('value', despesasList => {
-            let sal = [];
-            despesasList.forEach( temperatura => {
-              this.temperaturas.push(temperatura.val());
-              return false;
-            });
-              
-          });
-       /*
-        this.dbTemperaturas= database.list("temperatura").valueChanges();
-        var refItem = database.list("temperatura");
-        refItem.snapshotChanges([])
-            .subscribe( filhos => {
-              filhos.forEach( filho => {
-                this.temperaturas.push(filho.payload.val());
-               });
-            });*/
-
   }
 
   ionViewDidLoad() {
@@ -70,8 +50,17 @@ export class HistoricoTemperaturaPage {
       }
       this.totalAmostras = this.temperaturas.length;
       this.valorMedio = (soma / this.temperaturas.length).toFixed(0);
-    });
+      if (this.totalAmostras % 2 == 0){
+        this.valorMediana = (this.temperaturas[((this.totalAmostras/2)).toFixed(0)] + this.temperaturas[((this.totalAmostras/2)-1).toFixed(0)])/2;  
+      }else{
+        this.valorMediana = this.temperaturas[((this.totalAmostras/2) -1).toFixed(0)];
+      }
+    
+      this.valorModa = this.mode(this.temperaturas);
+  
 
+    });
+    
     console.log('ionViewDidLoad HistoricoTemperaturaPage');
 
   }
@@ -122,6 +111,29 @@ export class HistoricoTemperaturaPage {
     });
 
   }
+
+  mode(numbers) {
+    
+    var modes = [], count = [], i, number, maxIndex = 0;
+ 
+    for (i = 0; i < numbers.length; i += 1) {
+        number = numbers[i];
+        count[number] = (count[number] || 0) + 1;
+        if (count[number] > maxIndex) {
+            maxIndex = count[number];
+        }
+    }
+ 
+    for (i in count)
+        if (count.hasOwnProperty(i)) {
+            if (count[i] === maxIndex) {
+                modes.push(Number(i));
+            }
+        }
+ 
+    return modes;
+}
+
 
 
 

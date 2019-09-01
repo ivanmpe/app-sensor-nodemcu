@@ -21,16 +21,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HistoricoTemperaturaPage } from '../pages/historico-temperatura/historico-temperatura';
 import { HistoricoUmidadePage } from '../pages/historico-umidade/historico-umidade';
-import * as highcharts from 'Highcharts';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-//import {NgxMqttClientModule} from 'ngx-mqtt-client';
 import { TemperaturasProvider } from '../providers/temperaturas/temperaturas';
 import { UmidadesProvider } from '../providers/umidades/umidades';
-
-import { Observable } from 'rxjs/Observable';
-
-
-
 
 
 const config = {

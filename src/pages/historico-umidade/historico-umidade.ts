@@ -22,6 +22,8 @@ export class HistoricoUmidadePage {
   public umidades = [];
   public valorMedio;
   public totalAmostras;
+  public valorMediana: number = 0;
+  public valorModa;
 
 
 
@@ -46,11 +48,45 @@ export class HistoricoUmidadePage {
       }  
       this.totalAmostras = this.umidades.length;
       this.valorMedio = (soma/this.umidades.length).toFixed(0);
+      if (this.totalAmostras % 2 == 0){
+        this.valorMediana = (this.umidades[((this.totalAmostras/2)).toFixed(0)] + this.umidades[((this.totalAmostras/2)-1).toFixed(0)])/2;  
+      }else{
+        this.valorMediana = this.umidades[((this.totalAmostras/2) -1).toFixed(0)];
+      }
+      this.valorModa = this.mode(this.umidades);
+      
     });
 
 
     console.log('ionViewDidLoad HistoricoUmidadePage');
   }
+
+
+  mode(numbers) {
+    
+    var modes = [], count = [], i, number, maxIndex = 0;
+ 
+    for (i = 0; i < numbers.length; i += 1) {
+        number = numbers[i];
+        count[number] = (count[number] || 0) + 1;
+        if (count[number] > maxIndex) {
+            maxIndex = count[number];
+        }
+    }
+ 
+    for (i in count)
+        if (count.hasOwnProperty(i)) {
+            if (count[i] === maxIndex) {
+                modes.push(Number(i));
+            }
+        }
+ 
+    return modes;
+}
+
+
+
+
 
   graficoUmidade( umidades: any)
   {

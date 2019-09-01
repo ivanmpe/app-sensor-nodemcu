@@ -17,28 +17,23 @@
 
 
 <ion-content padding>
-    <!--<ion-list>
-
-        <ion-item-sliding *ngFor="let p of produtos | async">
-    
-          <ion-item>
-            <strong> {{ p}} </strong>
-          </ion-item>
-    
-        </ion-item-sliding>
-      </ion-list>
-    -->
-
-
-
+  
   <div id="container" style="display: block;"></div>
   <ion-item-sliding >
       <ion-item no-lines class="itens_normais">
-        Média: {{valorMedio}} °  
+        <strong>Média:</strong> {{valorMedio}} °  
+      </ion-item>
+      
+      <ion-item no-lines class="itens_normais">
+        <strong> Mediana:</strong>{{valorMediana}} °  
       </ion-item>
       <ion-item no-lines class="itens_normais">
-        Total de Amostras: {{totalAmostras}}  
+        <strong> Moda: </strong> {{valorModa}} °  
       </ion-item>
+      <ion-item no-lines class="itens_normais">
+        <strong>Total de Amostras:</strong> {{totalAmostras}}  
+      </ion-item>
+      
   </ion-item-sliding>
 
 

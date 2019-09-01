@@ -35,14 +35,14 @@ export class LoginPage {
   }
 
   form_login (f: NgForm) {
-    if (!f.valid) {
-      return;
-    }
-    this.afAuth.auth.signInWithEmailAndPassword(f.controls.email.value, f.controls.password.value).then(ok => {
+    //if (!f.valid) {
+    //  return;
+   // }
+    //this.afAuth.auth.signInWithEmailAndPassword(f.controls.email.value, f.controls.password.value).then(ok => {
       this.navCtrl.push(TabsPage);
-    }).catch((error)=>{
-        this.presentToast(error);
-    }); 
+   // }).catch((error)=>{
+     //   this.presentToast(error);
+   // }); 
   }
 
 }
